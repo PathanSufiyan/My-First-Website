@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Click Event
     btn.addEventListener("click", () => {
         const popup = document.createElement("div");
-        popup.textContent = "🎉 Thanks for visiting OnePlus Nord CE 4 5G Page!";
+        popup.textContent = "🎉 Thanks for visiting My Page!";
         popup.style.position = "fixed";
         popup.style.top = "50%";
         popup.style.left = "50%";
@@ -52,3 +52,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 2500);
     });
 });
+
