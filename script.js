@@ -1,36 +1,54 @@
-// Yeh code tab chalega jab poora page load ho jaye
-window.addEventListener("DOMContentLoaded", () => {
-  
-  // ===== Typewriter Effect =====
-  // Pehle <h1> ko pakad lega (chahe text "New Starting" ya kuch bhi ho)
-  const heading = document.querySelector("h1");  
-  if (heading) {
-    const text = heading.textContent;  // h1 ka asli text
-    heading.textContent = "";          // clear kardo
-    let i = 0;
+// Wait until page loads
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // Welcome animation
+    const heading = document.querySelector("h1");
+    heading.style.opacity = "0";
+    heading.style.transform = "translateY(-30px)";
+    
+    setTimeout(() => {
+        heading.style.transition = "all 1s ease";
+        heading.style.opacity = "1";
+        heading.style.transform = "translateY(0)";
+    }, 300);
 
-    function typeWriter() {
-      if (i < text.length) {
-        heading.textContent += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 70); // speed (70ms per character)
-      }
-    }
-    typeWriter();
-  }
+    // Button popup
+    const btn = document.createElement("button");
+    btn.textContent = "Click Me 🚀";
+    btn.style.padding = "10px 20px";
+    btn.style.borderRadius = "10px";
+    btn.style.border = "none";
+    btn.style.cursor = "pointer";
+    btn.style.background = "linear-gradient(45deg, #ff0080, #7928ca)";
+    btn.style.color = "#fff";
+    btn.style.fontSize = "16px";
+    btn.style.margin = "20px auto";
+    btn.style.display = "block";
+    btn.style.boxShadow = "0 5px 15px rgba(0,0,0,0.3)";
+    
+    document.body.appendChild(btn);
 
-  // ===== Dark Mode Toggle =====
-  const btn = document.querySelector("#darkModeBtn"); // button jiska id darkModeBtn hai
-  if (btn) {
+    // Click Event
     btn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
+        const popup = document.createElement("div");
+        popup.textContent = "🎉 Thanks for visiting OnePlus Nord CE 4 5G Page!";
+        popup.style.position = "fixed";
+        popup.style.top = "50%";
+        popup.style.left = "50%";
+        popup.style.transform = "translate(-50%, -50%)";
+        popup.style.background = "white";
+        popup.style.padding = "20px 40px";
+        popup.style.borderRadius = "15px";
+        popup.style.boxShadow = "0 10px 25px rgba(0,0,0,0.3)";
+        popup.style.fontSize = "18px";
+        popup.style.fontWeight = "bold";
+        popup.style.textAlign = "center";
+        popup.style.zIndex = "1000";
+        
+        document.body.appendChild(popup);
 
-      // button ka text change kar do
-      if (document.body.classList.contains("dark-mode")) {
-        btn.textContent = "☀️ Light Mode";
-      } else {
-        btn.textContent = "🌙 Dark Mode";
-      }
+        setTimeout(() => {
+            popup.remove();
+        }, 2500);
     });
-  }
 });
